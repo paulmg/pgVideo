@@ -1,0 +1,438 @@
+/* base styles */
+.vplayer {}
+.vplay, .vstop, .vfsoff, .volume-button {
+	cursor: pointer;
+}
+.vtimer {
+	cursor: default;
+}
+.pointer {
+    cursor: pointer;
+}
+
+/* transparent background layer for fullscreen */
+#fade { 
+	display: none;
+	background: #000;
+	position: fixed; 
+	left: 0; 
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+/* video */
+video.pgvideo {
+	border: 2px solid #000;
+	background: url(../images/load.gif) no-repeat center;
+	background-color: #000;
+}
+
+/* overlay */
+.vplayer.grey .overlay {
+	visibility: hidden;
+	position: absolute;
+	padding: 2px;
+	background-color: #000;
+	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: .6;
+}
+
+/* overlay options */
+.vplayer.grey .show-preloader {
+	visibility: visible;
+	background: url(../images/load.gif) no-repeat center;
+	background-color: #000;
+}
+.vplayer.grey .show-pause {
+	visibility: visible;
+	background: url(../images/pause.png) no-repeat center;
+	background-color: #000;
+}
+.vplayer.grey .show-play {
+	visibility: visible;
+	background: url(../images/play.png) no-repeat center;
+	background-color: #000;
+}
+.vplayer.grey .show {
+	visibility: visible;
+}
+
+/* Start of grey default theme */
+.vplayer.grey {
+	float: left;
+	position: relative;
+	padding: 10px;
+	/* border: 5px solid #61625d; */
+	background: #999;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13.5px;
+	
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+	
+	-webkit-box-shadow: 0 15px 25px #535353;
+	box-shadow: 0 15px 25px #535353;
+}
+
+/* video controls */
+.vplayer.grey .vcontrols {
+	padding-top: 5px;
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+/* fullscreen */
+.vplayer.grey.fullscreen {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	background-color: #000;
+}
+
+.vplayer.grey .fullscreen {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.vplayer.grey .fullscreen-overlay {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1001;
+}
+
+.vplayer.grey .fullscreen-vcontrols-container {
+	clear: both;
+	left: 50%;
+	margin-left: -275px; /* center it */
+	position: fixed;
+	z-index: 1002;
+	bottom: 12px;
+}
+
+.vplayer.grey .fullscreen-vcontrols {
+	padding: 10px 0px 15px 15px;
+	background: #999;
+	
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+	filter: alpha(opacity=85);
+	opacity: .85;
+}
+
+/* float controls */
+.vplayer.grey .vplay, .vplayer.grey .vstop, .vplayer.grey .vfsoff, .vplayer.grey .vseek, .vplayer.grey .volume-slider, .vplayer.grey .volume-button, .vplayer.grey video, .vplayer.grey .vtimer {
+	float: left;
+}
+
+/* play, pause */
+.vplayer.grey .vplay {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin-right: 3px;
+	background: url(../images/vplay.png) no-repeat center top;
+}
+.vplayer.grey .vplay:hover {
+	background: url(../images/vplay.png) no-repeat center -24px;
+}
+.vplayer.grey .vpause {
+	background: url(../images/vpause.png) no-repeat;
+}
+.vplayer.grey .vpause:hover {
+	background: url(../images/vpause.png) no-repeat center -24px;
+}
+
+/* stop */
+.vplayer.grey .vstop {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin-right: 9px;
+	background: url(../images/vstop.png) no-repeat center top;
+}
+.vplayer.grey .vstop:hover {
+	background: url(../images/vstop.png) no-repeat center -24px;
+}
+
+/* fullscreen on, off */
+.vplayer.grey .vfsoff {
+	display: block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/vfsoff.png) no-repeat;
+}
+.vplayer.grey .vfsoff:hover {
+	background: url(../images/vfsoff.png) no-repeat center -24px;
+}
+.vplayer.grey .vfson {
+	background: url(../images/vfson.png) no-repeat;
+}
+.vplayer.grey .vfson:hover {
+	background: url(../images/vfson.png) no-repeat center -24px;
+}
+
+/* video buffer */
+.vplayer.grey .vbuffer {
+	float: left;
+	position: relative;		
+	width: 310px;
+	height: 6px;
+	margin-top: 9px;
+	margin-right: -310px;
+	/* border: 1px solid #494949; */
+	cursor: pointer;
+	background: #535353;
+	z-index: 200;
+
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.vplayer.grey .vbuffer .ui-progressbar-value {
+	background: #7884AF;
+	z-index: 201;
+}
+
+/* video seek */
+.vplayer.grey .vseek {
+	position: relative;		
+	width: 310px;
+	height: 6px;
+	margin-top: 9px;
+	background: #535353;
+	border: 1px solid #aaa; 
+	cursor: pointer;
+
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+/* video seek handle */
+.vplayer.grey .vseek .ui-slider-handle {
+	width: 20px;
+	height: 10px;
+	border: 2px solid #333;
+	top: -4px;
+	cursor: pointer;	
+	z-index: 203;
+	
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	
+	background: #7e7e7e;
+	background-image: -webkit-linear-gradient(top, #7e7e7e, #505050);
+	background-image: -moz-linear-gradient(top, #7e7e7e, #505050);
+	background-image: -o-linear-gradient(top, #7e7e7e, #505050);
+	background-image: -ms-linear-gradient(top, #7e7e7e, #505050);
+	background-image: linear-gradient(top, #7e7e7e, #505050);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #5884AF),color-stop(1, #4B6783));
+}
+.vplayer.grey .vseek .ui-slider-handle.ui-state-hover {
+	background: #5884AF;
+}
+
+/* video seek range */
+.vplayer.grey .vseek .ui-slider-range {
+	cursor: pointer;
+	
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	
+	background: #4B6783;
+	background-image: -webkit-linear-gradient(top, #5884AF, #4B6783);
+	background-image: -moz-linear-gradient(top, #5884AF, #4B6783);
+	background-image: -o-linear-gradient(top, #5884AF, #4B6783);
+	background-image: -ms-linear-gradient(top, #5884AF, #4B6783);
+	background-image: linear-gradient(top, #5884AF, #4B6783);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #5884AF),color-stop(1, #4B6783));
+	
+	/*box-shadow: inset 0 -3px 3px #39a2ce;*/
+}
+
+/* video seek progress bar */
+.vplayer.grey .vseek .ui-slider-progress {
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	cursor: pointer;	
+	z-index: 202;
+	
+	background: #4B6766;
+	background-image: -webkit-linear-gradient(top, #5884AF, #4B6766);
+	background-image: -moz-linear-gradient(top, #5884AF, #4B6766);
+	background-image: -o-linear-gradient(top, #5884AF, #4B6766);
+	background-image: -ms-linear-gradient(top, #5884AF, #4B6766);
+	background-image: linear-gradient(top, #5884AF, #4B6766);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #5884AF),color-stop(1, #4B6766));
+	
+	/*box-shadow: inset 0 -3px 3px #39a2ce;*/
+}
+
+/* timer */
+.vplayer.grey .vtimer {
+	margin-top: 7px;
+	margin-left: 19px;
+	margin-right: 5px;
+	color: #fff;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+/* now playing text */
+.vplayer.grey .nowplaying {
+	float: left;
+	padding: 8px 8px 8px 3px;
+	margin-top: 5px;
+	margin-bottom: -8px;
+	color: #fff;
+	font-size: 0.9em;
+	font-weight: bold;
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+}
+
+/* video title text */
+.vplayer.grey .vtitle {
+	float: left;
+	padding: 8px 5px 8px 5px;
+	margin-top: 5px;
+	margin-bottom: -8px;
+	color: #fff;
+	font-size: 0.9em;
+	font-weight: bold;
+	width: 280px;
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+}
+
+/* volume container */
+.vplayer.grey .volume-box {
+	padding: 5px 7px 6px 8px;
+	margin-top: 5px;
+	margin-bottom: -6px;
+	border-top: 1px solid #000;
+	float:left;
+}
+
+/* volume slider */
+.vplayer.grey .volume-slider {	
+	position:relative;		
+	width: 80px;
+	height: 5px;
+	margin-top: 7px;
+	margin-bottom: -6px;
+	border: 1px solid #444;
+	background: #535353;
+	cursor: pointer;
+
+	-webkit-border-radius:15px;
+	border-radius:15px;
+}
+
+/* volume slider handle */
+.vplayer.grey .volume-slider .ui-slider-handle {
+	width: 15px;
+	height: 8px;
+	border: 2px solid #333;
+	top: -3px;
+	cursor: pointer;
+	
+	-webkit-border-radius: 5px;
+	border-radius: 5px;	
+	
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;	
+
+	background: #7e7e7e;
+	background-image: -webkit-linear-gradient(top, #7e7e7e, #505050);
+	background-image: -moz-linear-gradient(top, #7e7e7e, #505050);
+	background-image: -o-linear-gradient(top, #7e7e7e, #505050);
+	background-image: -ms-linear-gradient(top, #7e7e7e, #505050);
+	background-image: linear-gradient(top, #7e7e7e, #505050);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #7e7e7e),color-stop(1, #505050));
+}
+.vplayer.grey .volume-slider .ui-slider-handle.ui-state-hover {
+	background: #5884AF;
+}
+
+/* volume slider range */
+.vplayer.grey .volume-slider .ui-slider-range {
+	cursor: pointer;
+	
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	
+	background: #4B6783;
+	background-image: -webkit-linear-gradient(top, #5884AF, #4B6783);
+	background-image: -moz-linear-gradient(top, #5884AF, #4B6783);
+	background-image: -o-linear-gradient(top, #5884AF, #4B6783);
+	background-image: -ms-linear-gradient(top, #5884AF, #4B6783);
+	background-image: linear-gradient(top, #5884AF, #4B6783);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #5884AF),color-stop(1, #4B6783));
+}
+
+/* volume button */
+.vplayer.grey .volume-button {
+	display: block;
+	width: 26px;
+	height: 22px;
+	background: url(../images/vmuteoff.png) no-repeat;
+	text-indent: -9999px;
+	margin-right: 8px;
+	margin-bottom: -6px;
+}
+.vplayer.grey .volume-mute {
+	background: url(../images/vmuteon.png) no-repeat;
+}
+
+/* jQuery UI styles. Using these we don't depend on jQuery UI's stylsheet */
+.ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	display: block;
+	margin-left: -0.6em;
+	cursor: default;
+	outline: none;
+}
+
+.ui-slider-range {
+	display: block;
+	width: 100%;	
+	height: 100%;
+	left: 0;
+	bottom: 0;
+	border: 0 none;
+	position: absolute;
+	z-index: 1;
+}
