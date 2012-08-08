@@ -37,6 +37,7 @@ video.pgvideo {
 	visibility: hidden;
 	position: absolute;
 	padding: 2px;
+	cursor: pointer;
 	background-color: #000;
 	
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
